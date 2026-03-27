@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --card: 217 33% 12%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 217 33% 12%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 238 84% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 271 81% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 238 84% 67%;
+
+    --radius: 0.75rem;
+
+    /* Custom Aetheris tokens */
+    --neon-blue: 217 91% 60%;
+    --neon-purple: 271 81% 56%;
+    --neon-cyan: 187 96% 52%;
+    --neon-green: 142 71% 45%;
+    --neon-red: 0 84% 60%;
+    --neon-gold: 45 93% 58%;
+
+    --glass-bg: 222 47% 11%;
+    --glass-border: 0 0% 100%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 238 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 238 84% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .glass-surface {
+    background: hsla(var(--glass-bg) / 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsla(var(--glass-border) / 0.1);
+  }
+
+  .glass-surface-strong {
+    background: hsla(var(--glass-bg) / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--glass-border) / 0.15);
+  }
+
+  .neon-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--neon-blue)),
+      hsl(var(--neon-purple))
+    );
+  }
+
+  .neon-gradient-text {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--neon-blue)),
+      hsl(var(--neon-purple))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .neon-glow {
+    box-shadow:
+      0 0 20px hsla(var(--neon-blue) / 0.3),
+      0 0 40px hsla(var(--neon-purple) / 0.15);
+  }
+
+  .neon-glow-strong {
+    box-shadow:
+      0 0 30px hsla(var(--neon-blue) / 0.5),
+      0 0 60px hsla(var(--neon-purple) / 0.25),
+      0 0 100px hsla(var(--neon-purple) / 0.1);
+  }
+
+  .neon-border-glow {
+    box-shadow:
+      inset 0 0 20px hsla(var(--neon-blue) / 0.1),
+      0 0 15px hsla(var(--neon-blue) / 0.2);
+  }
+
+  .gold-glow {
+    box-shadow:
+      0 0 20px hsla(var(--neon-gold) / 0.4),
+      0 0 40px hsla(var(--neon-gold) / 0.2);
+    border-color: hsl(var(--neon-gold));
+  }
+
+  .silver-glow {
+    box-shadow:
+      0 0 20px hsla(215 20% 65% / 0.4),
+      0 0 40px hsla(215 20% 65% / 0.2);
+    border-color: hsl(215 20% 65%);
+  }
+
+  .bronze-glow {
+    box-shadow:
+      0 0 20px hsla(25 76% 50% / 0.4),
+      0 0 40px hsla(25 76% 50% / 0.2);
+    border-color: hsl(25 76% 50%);
+  }
+
+  .holographic-timer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--neon-blue)),
+      hsl(var(--neon-purple)),
+      hsl(var(--neon-red))
+    );
+    background-size: 200% 100%;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-neon {
+    animation: pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-neon {
+    0%,
+    100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.7;
+      filter: brightness(1.5);
+    }
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 10px hsla(var(--neon-blue) / 0.5),
+      0 0 20px hsla(var(--neon-purple) / 0.3);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(var(--neon-blue) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--neon-blue) / 0.5);
+}
